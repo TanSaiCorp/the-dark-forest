@@ -31,12 +31,12 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 10f);
         }
         //Left edge of the screen block
-        float distance = transform.position.z - Camera.main.transform.position.z;
-        Vector3 leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
-        minX = leftmost.x + padding;
-        if (transform.position.x < minX)
-        {
-            transform.position = new Vector3(minX, transform.position.y, transform.position.z);
-        }
+        // float distance = transform.position.z - Camera.main.transform.position.z;
+        // Vector3 leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
+        // minX = leftmost.x + padding;
+        // if (transform.position.x < minX)
+        // {
+        //     transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+        // }
     }
 }
