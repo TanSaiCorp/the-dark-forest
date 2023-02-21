@@ -6206,6 +6206,9 @@ MonoBehaviour:
   player: {fileID: 1106304909}
   speed: 2
   range: 5
+  stopDistance: 1.5
+  attackDistance: 1.5
+  attackCooldown: 1
   animator: {fileID: 1921328925}
 --- !u!114 &1921328931
 MonoBehaviour:
@@ -6216,6 +6219,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1921328924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2a260c894337c945844ac9e169d75e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 99a3a63be6c54aa4389627986f397ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1106304909}
