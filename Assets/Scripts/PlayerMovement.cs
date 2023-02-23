@@ -39,4 +39,11 @@ public class PlayerMovement : MonoBehaviour
         //     transform.position = new Vector3(minX, transform.position.y, transform.position.z);
         // }
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemyAttack"))
+        {
+            animator.SetTrigger("isHit");
+        }
+    }
 }

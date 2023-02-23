@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public Transform player;
     public float speed = 2f;
     public float range = 5f;
-    public float stopDistance = 1.5f;
-    public float attackDistance = 1.5f;
-    public float attackCooldown = 1f;
+    public float stopDistance = 1f;
+    public float attackDistance = 1f;
+    public float attackCooldown = 0.5f;
     private bool isAttacking = false;
 
     public Animator animator;
+
+    public GameObject attackCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class EnemyMovementController : MonoBehaviour
             {
                 animator.SetBool("isMoving", true);
                 animator.SetBool("isAttacking", false);
+                DisableAttackCollider();
                 transform.Translate(direction * speed * Time.deltaTime);
             }
             else if (!isAttacking && distance <= attackDistance)
@@ -44,6 +47,7 @@ public class EnemyMovementController : MonoBehaviour
         else
         {
             animator.SetBool("isAttacking", false);
+            DisableAttackCollider();
             animator.SetBool("isMoving", false);
             // idle or patrol
         }
@@ -51,6 +55,16 @@ public class EnemyMovementController : MonoBehaviour
     void DoAttack()
     {
         animator.SetBool("isAttacking", true);
+        EnableAttackCollider();
         isAttacking = false;
+    }
+    private void EnableAttackCollider()
+    {
+        attackCollider.SetActive(true);
+    }
+
+    private void DisableAttackCollider()
+    {
+        attackCollider.SetActive(false);
     }
 }
