@@ -21,7 +21,7 @@ public class ParallaxBackground : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 deltaMovement = cameraTransform.position - previousCameraPosition;
-        transform.position -= new Vector3(deltaMovement.x * relativeMovement.x, deltaMovement.y * relativeMovement.y);
+        transform.position += new Vector3(deltaMovement.x * relativeMovement.x, deltaMovement.y * relativeMovement.y);
         previousCameraPosition = cameraTransform.position;
 
         if (Mathf.Abs(cameraTransform.position.x - transform.position.x) >= textureUnitSizeX){
